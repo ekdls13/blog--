@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1, h3{
+            background-color: burlywood;
+            padding:10px 20px;
+            border-radius: 20px;
+            
+        }
+        textarea{
+            text-align: center;
+            background-color: rgb(206, 187, 165);
+            border-radius:80px;
+            border-color: black;
+            border-width: 3px;
+            
+        }
+    
+        body{
+            background-color: rgb(247, 214, 184);
+            text-align: center;
+            padding:30px 90px;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>결과!</h1>
+
+    <h4><a href="{%url 'home' %}"><span style="background-color: rgb(173, 149, 126);" >RESTART</span></a></h4>
+    <h3>당신이 입력한 문자의 갯수는 총 <span style="background-color: lightcoral;">{{total}}</span>입니다!
+    </h3>
+    <h3>당신이 입력한 문장</h3>
+    <textarea name="" id="" cols="80" rows="10">{{text}}</textarea>
+    <br>
+    <h3>단어 카운트</h3>
+    {% for word,count in dictionary%}
+
+    {{word}}:{{count}}
+    <br>
+
+    {% endfor %}
+</body>
+</html>

@@ -1,14 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            background-color: cadetblue;
+            padding: 20px 30px;
+        }
+        h2{
+            background-color: rgb(177, 220, 221);
+            padding:10px 10px;
+            text-align: center;
+        }
+        p{
+            background-color: rgb(213, 223, 223);
+            font-size:x-large;
+            padding-left: 80px;
+        }
+        a{
+            margin-left: 1400px;
+            background-color: darkgray;
+        }
+    </style>
+</head>
+<body>
+    <h1> Detail page</h1>
 
-<h1> Detail page</h1>
+    <h2>제목:{{blog.title}}</h2>
 
-<h3>제목:{{blog.title}}</h3>
+    <hr>
 
-<hr>
+    <p>{{blog.pub_date}}
+    <br>
+    <br>
+    {{blog.body}}
+    <br>
+    <img src="{{blog.image.url}}">
+    
 
-<p>{{blog.pub_date}}</p>
-
-<p>{{blog.body}}</p>
-
-<a href="{%url 'edit' blog.id %}">수정하기</a>
-<a href="{%url 'delete' blog.id %}">삭제하기</a>
-<a href="{%url 'list' %}">list</a>
+    <a href="{%url 'edit' blog.id %}">수정하기</a>
+    <a href="{%url 'delete' blog.id %}">삭제하기</a>
+    <br>
+    <a href="{%url 'list' %}">TODAY</a>
+    </p>
+</body>
+</html>

@@ -1,10 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            background-color: rgb(207, 174, 185);
+            text-indent:40px;
+            padding-left:10em;
+            padding:30px 20px;
+        }
+        body{
+            background-color: rgb(241, 228, 247);
+        }
+        img{
+            float:right;
+            padding-right: 80px;
+        }
+        table{
+            background-color: rgb(218, 207, 189);
+            height: 400px;
+            width: 700px;
+            margin-left: 40px;
+            
+        }
+      
+       
+    </style>
+</head>
+<body>
+    {% load static %}
+    <h1>DIARY</h1>
+    <img src="{% static '펭수.jpg' %}" alt="" width="700" height="400">
 
-<h1>새 글 작성하기</h1>
-<form action="{%url 'create' %}" method = "POST">
-    {%csrf_token%}
-    제목 :<input type="text" name = "title">
+    <form method='POST' enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <br>
+        <input class= "btn btn=dark" type="submit" value="저장">
+    </form>
     <br>
     <br>
-    본문:<textarea name="body" id="" cols="30" rows="10"></textarea>
-    <button type = "submit">작성!</button>
-</form>
+    <hr class="one">
+    <br>
+    <hr class="one">
+</body>
+</html>

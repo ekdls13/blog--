@@ -20,7 +20,7 @@
             padding-left: 80px;
         }
         a{
-            margin-left: 1400px;
+            margin-left: 2000px;
             background-color: darkgray;
         }
     </style>
@@ -39,8 +39,9 @@
     <br>
     <img src="{{blog.image.url}}">
     
-
+    <br>
     <a href="{%url 'edit' blog.id %}">수정하기</a>
+    <br>
     <a href="{%url 'delete' blog.id %}">삭제하기</a>
     <br>
     <a href="{%url 'list' %}">TODAY</a>

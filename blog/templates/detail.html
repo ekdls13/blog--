@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>Document</title>
     <style>
         h1{
@@ -17,11 +18,15 @@
         p{
             background-color: rgb(213, 223, 223);
             font-size:x-large;
-            padding-left: 80px;
+            padding-left: 50px;
         }
         a{
-            margin-left: 2000px;
+            margin-left: 10px;
             background-color: darkgray;
+        }
+        #one{
+            padding-left: 50px;
+            background-color: rgb(190, 204, 204);
         }
     </style>
 </head>
@@ -31,13 +36,13 @@
     <h2>제목:{{blog.title}}</h2>
 
     <hr>
-
+    <p>{{likes}}따봉</p>
     <p>{{blog.pub_date}}
     <br>
     <br>
     {{blog.body}}
     <br>
-    <img src="{{blog.image.url}}">
+    <img src="{{blogs.image.url}}">
     
     <br>
     <a href="{%url 'edit' blog.id %}">수정하기</a>
@@ -46,5 +51,28 @@
     <br>
     <a href="{%url 'list' %}">TODAY</a>
     </p>
+    <hr>
+    <details>
+        <summary>댓글달기</summary>
+        <form action="/blog/commenting/{{blog.id}}"method="post">
+            {%csrf_token%}
+            <br>
+            <input class="form-control" type="text" placeholder="댓글을 입력하세요">
+            <button type="submit" class="btn btn-dark">작성</button>
+        </form>
+    </details>
+    <br>
+    <form action="/blog/like/{{blog.id}}" method="get">
+        <button type="submit" class="btn btn-link">좋아요</button>
+    </form>
+    {% for comment in comments %}
+    <p id="one"><br>작성자: {{comment.author}}
+    <br>내용: {{comment.body}}
+    <br>{{comment.pub_date}}</p>
+        
+    {% endfor %}
+    
+
+
 </body>
 </html>
